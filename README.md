@@ -10,7 +10,8 @@ Changelog:
     - Uploaded to github
     - Very basic calculator that can run basic math operations in expression form
     - Example: 2+2 Outputs: 4 | 2 * 2 Outputs: 4
-    - Finds the Mode of an array I made; I made this to see if I could do median and mode in C++ will be eloberated on in future updates
+    - Finds the Mode of an array I made; 
+    I made this to see if I could do median and mode in C++ will be eloberated on in future updates
 
 Roadmap:
   - Form a GUI with Dear ImGUI
