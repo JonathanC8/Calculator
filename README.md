@@ -4,6 +4,7 @@ My first major C++ project
 I will be using this project to further my understanding and knowledge of C++ so I can hone my skills in application development.
 
 Changelog:
+
   V0.1:
     - Uploaded to github
     - Very basic calculator that can run basic math operations in expression form
