@@ -6,6 +6,7 @@ I will be using this project to further my understanding and knowledge of C++ so
 Changelog:
 
   V0.1:
+  
     - Uploaded to github
     - Very basic calculator that can run basic math operations in expression form
     - Example: 2+2 Outputs: 4 | 2 * 2 Outputs: 4
