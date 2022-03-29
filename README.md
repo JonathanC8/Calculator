@@ -3,6 +3,8 @@ Calculator
 My first major C++ project
 I will be using this project to further my understanding and knowledge of C++ so I can hone my skills in application development.
 
+Check the unstable branch for my latest updates to the code which still create code breaking errors.
+
 Changelog:
 
   V0.1:
