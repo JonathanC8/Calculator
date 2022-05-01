@@ -1,1 +1,2 @@
 C:\Users\Jonat\OneDrive\Documents\Coding\Calculator\x64\Debug\Calculator.exe
+C:\Projects\Calculator\x64\Debug\Calculator.exe

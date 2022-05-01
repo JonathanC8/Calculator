@@ -1,1 +1,4 @@
-﻿  Calculator.vcxproj -> C:\Users\Jonat\OneDrive\Documents\Coding\Calculator\x64\Debug\Calculator.exe
+﻿  main.cpp
+C:\Projects\Calculator\src\main.cpp(116,36): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+C:\Projects\Calculator\src\main.cpp(139,26): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+  Calculator.vcxproj -> C:\Projects\Calculator\x64\Debug\Calculator.exe
