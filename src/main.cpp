@@ -8,139 +8,113 @@
 #include <string>
 using namespace std;
 
-void MedModRun();
-double basicCalculator(double inputA, double inputB, char op);
-
 void error_callback(int error, const char* description) {
 	fputs(description, stderr);
-}
-
-void basicCalcwindow() {
-	ImGui::Begin("Calculator");
-
-	ImGui::Text("Basic operations calculator");
-	static char inputAa[128] = {};
-	static char inputBa[128] = {};
-	static char inputOp[2] = { };
-	size_t sizea = sizeof(inputAa);
-	size_t sizeb = sizeof(inputOp);
-	size_t sizec = sizeof(inputBa);
-
-	ImGui::InputText("First Number", inputAa, sizea); ImGui::InputText("Operator", inputOp, sizeb); ImGui::InputText("Second Number", inputBa, sizec);
-	static double output = 0;
-
-	if (ImGui::Button("Calculate")) {
-
-		double inputA = atof(inputAa);
-		double inputB = atof(inputBa);
-		char op = inputOp[0];
-
-		output = basicCalculator(inputA, inputB, op);
-
-	}
-
-	ImGui::Text("Output: %f", output);
-
-	ImGui::End();
-}
-
-void newcalcbuttons() {
-	
 }
 
 void newCalcWindow() {
 
 	ImGui::Begin("New Calculator");
 	ImGui::Text("New basic arithmetic calculator");
-	static string expression = "";
-	static float total = 0;
+	static string expressionView = "";
+	static float floatyExpr[256] = {};
+	static int order[256] = {};
+	static float solution = 0;
+	static string numbers = "";
+	float num1 = 0.f;
+	float num2 = 0.f;
 	bool assigned = false;
-	ImGui::Text("Expression: %s", expression.c_str());
+	static int x = 0;
+	ImGui::TextWrapped("Expression: %s", expressionView.c_str());
 
-	ImGui::TextWrapped("Total:     %f", total);
+	ImGui::TextWrapped("Result:     %f", solution);
 	
 	if (ImGui::Button("7", ImVec2(50, 50)) || ImGui::IsKeyPressed(ImGuiKey_Keypad7)) {
-		expression += "7";
+		expressionView += "7";
+		numbers += "7";
 	}
 	ImGui::SameLine();
 	if (ImGui::Button("8", ImVec2(50, 50)) || ImGui::IsKeyPressed(ImGuiKey_Keypad8)) {
-		expression += "8";
+		expressionView += "8";
+		numbers += "8";
 	}
 	ImGui::SameLine();
 	if (ImGui::Button("9", ImVec2(50, 50)) || ImGui::IsKeyPressed(ImGuiKey_Keypad9)) {
-		expression += "9";
+		expressionView += "9";
+		numbers += "9";
 	}
 	ImGui::SameLine();
 	if (ImGui::Button("C", ImVec2(50, 50))) {
-		expression.erase();
+		expressionView.erase();
+		numbers.erase();
+		for (int i = 0; i < 256; i++) {
+			floatyExpr[i] = 0;
+			order[i] = 0;
+		}
 	}
 	if (ImGui::Button("4", ImVec2(50, 50)) || ImGui::IsKeyPressed(ImGuiKey_Keypad4)) {
-		expression += "4";
+		expressionView += "4";
+		numbers += "4";
 	}
 	ImGui::SameLine();
 	if (ImGui::Button("5", ImVec2(50, 50)) || ImGui::IsKeyPressed(ImGuiKey_Keypad5)) {
-		expression += "5";
+		expressionView += "5";
+		numbers += "5";
 	}
 	ImGui::SameLine();
 	if (ImGui::Button("6", ImVec2(50, 50)) || ImGui::IsKeyPressed(ImGuiKey_Keypad6)) {
-		expression += "6";
+		expressionView += "6";
+		numbers += "6";
 	}
 	ImGui::SameLine();
 	if (ImGui::Button("-", ImVec2(50, 50)) || ImGui::IsKeyPressed(ImGuiKey_KeypadSubtract)) {
-		expression += "-";
+		expressionView += "-";
+		floatyExpr[x] = atof(numbers.c_str());
+		order[x] = 6;
+		x++;
+		numbers = "";
 	}
 	if (ImGui::Button("1", ImVec2(50, 50)) || ImGui::IsKeyPressed(ImGuiKey_Keypad1)) {
-		expression += "1";
+		expressionView += "1";
+		numbers += "1";
 	}
 	ImGui::SameLine();
 	if (ImGui::Button("2", ImVec2(50, 50)) || ImGui::IsKeyPressed(ImGuiKey_Keypad2)) {
-		expression += "2";
+		expressionView += "2";
+		numbers += "2";
 	}
 	ImGui::SameLine();
 	if (ImGui::Button("3", ImVec2(50, 50)) || ImGui::IsKeyPressed(ImGuiKey_Keypad3)) {
-		expression += "3";
+		expressionView += "3";
+		numbers += "3";
 	}
 	ImGui::SameLine();
 	if (ImGui::Button("+", ImVec2(50, 50)) || ImGui::IsKeyPressed(ImGuiKey_KeypadAdd)) {
-		expression += "+";
+		expressionView += "+";
+		floatyExpr[x] = atof(numbers.c_str());
+		order[x] = 5;
+		x++;
+		numbers = "";
 	}
 	if (ImGui::Button("0", ImVec2(108, 50)) || ImGui::IsKeyPressed(ImGuiKey_Keypad0)) {
-		expression += "0";
+		expressionView += "0";
+		numbers += "0";
 	}
 	ImGui::SameLine();
 	if (ImGui::Button(".", ImVec2(50, 50)) || ImGui::IsKeyPressed(ImGuiKey_KeypadDecimal)) {
-		expression += ".";
+		expressionView += ".";
+		numbers += ".";
 	}
 	ImGui::SameLine();
-	if (ImGui::Button("Calculate", ImVec2(50, 50)) || ImGui::IsKeyPressed(ImGuiKey_KeypadEnter)) {
-		int arraySize = expression.size();
-		static char inputAa[3]={};
-		static char inputBa[2]={};
-		int	dividingPoint = 0;
-		
-		int z = 0;
-		for (int x = 0; x <= arraySize; x++) {
-			if (expression[x] == '+') {
-				dividingPoint = x;
-			}
-			if (dividingPoint != 0) {
-				for (int y = 0; y <= dividingPoint; y++) {
-					inputAa[y] = expression[y];
-				}
-			}
-			if (x > dividingPoint) {
-				inputBa[z] = expression[x];
-				z++;
-			}
+	if (ImGui::Button("Enter", ImVec2(50, 50)) || ImGui::IsKeyPressed(ImGuiKey_KeypadEnter)) {
+		floatyExpr[1] = atof(numbers.c_str());
+		for (int i = 0; i < 5; i++) {
+			cout << floatyExpr[i];
+			cout << "\n";
 		}
-		char op = expression[dividingPoint];
-		double inputA = atof(inputAa);
-		double inputB = atof(inputBa);
-		total = basicCalculator(inputA, inputB, op);
-		ImGui::Text("Debug Expression: %s", expression.c_str());
-		ImGui::Text("Debug A: %f", inputA);
-		ImGui::Text("Debug B: %s", inputBa);
-		
+
+		solution = extra::expressionCalculator(floatyExpr, order);
+		x = 0;
 	}
 	
 	ImGui::End();
@@ -149,24 +123,29 @@ void newCalcWindow() {
 
 void guiWindows() {
 	// This is the gui drawing thing where I put the code for running ImGui windows
-	basicCalcwindow();
+	//basicCalcwindow();
 	ImGui::ShowDemoWindow();
 	newCalcWindow();
 }
 
 void windowInit() {
 
+	//Setting the error callback
 	glfwSetErrorCallback(error_callback);
 
+	//Setting the glsl version very important
 	const char* glsl_version = "#version 130";
 
+	//If glfw doesn't initiate it will exit with a failure code
 	if (!glfwInit()) {
 		exit(EXIT_FAILURE);
 		return;
 	}
 
+	//Setting the window size and also creating it along with its parameters
 	GLFWwindow* window = glfwCreateWindow(1280, 720, "Calculator", NULL, NULL);
 
+	//If there is no window it will terminate providing a window.
 	if (!window) {
 		glfwTerminate();
 		exit(EXIT_FAILURE);
@@ -187,6 +166,7 @@ void windowInit() {
 	//sets background color variable
 	ImVec4 clear_color = ImVec4(0.20f, 0.20f, 0.20f, 0.20f);
 
+	//Application loop
 	while (!glfwWindowShouldClose(window)) {
 
 		glfwPollEvents();
@@ -222,5 +202,3 @@ int main(int, char**) {
 	
 	return 0;
 }
-
-
