@@ -16,9 +16,9 @@ Changelog:
   
  # V0.2.1:
   
-    -Now with GUI using the Dear ImGui library and OpenGL api
-    -No new Calculation features
-    -Re-organized the repository.
+  - Now with GUI using the Dear ImGui library and OpenGL api
+  - No new Calculation features
+  - Re-organized the repository.
     
 Roadmap:
   
