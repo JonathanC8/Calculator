@@ -1,5 +1,15 @@
-﻿  main.cpp
-C:\Projects\Calculator\src\main.cpp(72,23): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-C:\Projects\Calculator\src\main.cpp(94,23): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-C:\Projects\Calculator\src\main.cpp(110,23): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-  Calculator.vcxproj -> C:\Projects\Calculator\x64\Debug\Calculator.exe
+﻿  imgui.cpp
+  imgui_demo.cpp
+  imgui_draw.cpp
+  imgui_impl_glfw.cpp
+  imgui_impl_opengl3.cpp
+  imgui_tables.cpp
+  imgui_widgets.cpp
+  basicCalculation.cpp
+  main.cpp
+C:\Users\Jonat\OneDrive\Documents\Coding\Calculator\src\main.cpp(72,23): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\Jonat\OneDrive\Documents\Coding\Calculator\src\main.cpp(94,23): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\Jonat\OneDrive\Documents\Coding\Calculator\src\main.cpp(110,23): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+  MedMod.cpp
+  Generating Code...
+  Calculator.vcxproj -> C:\Users\Jonat\OneDrive\Documents\Coding\Calculator\x64\Debug\Calculator.exe
