@@ -5,6 +5,8 @@ I will be using this project to further my understanding and knowledge of C++ so
 
 Check the unstable branch for my latest updates to the code which still create code breaking errors.
 
+Currently on indefinite hyatus I may or may not come back to this. This project is superceded by my JavaFX Calculator.
+
 # Changelog:
 
 ## V0.1:
@@ -22,7 +24,6 @@ Check the unstable branch for my latest updates to the code which still create c
     
 # Roadmap:
   
-  - Form a GUI with Dear ImGUI
   - Formulate "advanced" expressions
   - Solve algebraic expressions
   - Calculate common conversions 
